@@ -2,17 +2,17 @@ console.log("working");
 var maxRuns = 50;
 var runs = 0;
 var iID = setInterval(clock, 5000);
-var peeps = [];
+var nodes = [];
 
 init();
 
 function init() {
-    var dude1 = new Dude("Bob");
-    peeps.push(dude1);
-    printProps(dude1);
+    var tower1 = new Tower("Lazer");
+    nodes.push(tower1);
+    printProps(tower1);
 }
 
-function Dude(name) {
+function Tower(name) {
     this.happy = 100;
     this.sad = 0;
     this.age = 0;
@@ -23,16 +23,16 @@ function Dude(name) {
     this.name = name;
 }
 
-function printProps(dude) {
-    document.write(dude.name + "[<br/>");
-    for (var prop in dude) {
-        document.write(prop + ": " + dude[prop] + "<br/>");
+function printProps(tower) {
+    document.write(tower.name + "[<br/>");
+    for (var prop in tower) {
+        document.write(prop + ": " + tower[prop] + "<br/>");
     }
     document.write("]");
 }
 
-function updateStats(peep) {
-    peep.sick += 1;
+function updateStats(node) {
+    node.sick += 1;
 }
 
 function clock() {
@@ -45,8 +45,8 @@ function clock() {
     
     document.body.innerHTML = ''; // clear the old data
     
-    for (var i = 0; i < peeps.length; i++) {
-        printProps(peeps[i]);
-        updateStats(peeps[i]);
+    for (var i = 0; i < nodes.length; i++) {
+        printProps(nodes[i]);
+        updateStats(nodes[i]);
     }
 }
